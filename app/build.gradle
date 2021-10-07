@@ -2,11 +2,14 @@ plugins {
     id 'com.android.application'
 }
 
+def localPropertiesFile = rootProject.file("local.properties")
+def localProperties = new Properties();
+localProperties.load(new FileInputStream(localPropertiesFile))
 android {
     compileSdk 31
 
     defaultConfig {
-        buildConfigField "String", "API_KEY",API_KEY
+        buildConfigField "String", "API_KEY",localProperties['API_KEY']
         applicationId "com.example.myviewmodel"
         minSdk 29
         targetSdk 30
