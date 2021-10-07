@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Movies App</string>
+    <string name="title_tv">TV Show</string>
+    <string name="title_movie">Movies</string>
+    <string name="title">Title</string>
+    <string name="desc">Overview</string>
+    <string name="poster_image">Poster Image</string>
+    <string name="popular_tv">Popular Tv</string>
+    <string name="popular_movie">Popular Movie</string>
+    <string name="no_desc">No English Description</string>
+    <string name="release_date">Release Date</string>
+    <string name="airing_date">First Air Date</string>
+    <string name="dummy_text">Lorem Ipsum</string>
+
+</resources>
