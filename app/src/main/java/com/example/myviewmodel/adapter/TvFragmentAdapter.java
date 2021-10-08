@@ -80,7 +80,8 @@ public class TvFragmentAdapter extends RecyclerView.Adapter<TvFragmentAdapter.Vi
 
         public void bindData(TvEntity tvResult) {
             tvTitle.setText(tvResult.getName());
-            tvOverview.setText(tvResult.getOverview());
+            if (tvResult.getOverview().isEmpty()) tvOverview.setText(R.string.no_desc);
+            else tvOverview.setText(tvResult.getOverview());
             Glide.with(itemView.getContext())
                     .load(Constant.TMDB_POSTER + tvResult.getPosterPath())
                     .into(imgPoster);

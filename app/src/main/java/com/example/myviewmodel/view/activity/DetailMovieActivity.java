@@ -15,9 +15,7 @@ import androidx.swiperefreshlayout.widget.CircularProgressDrawable;
 
 import com.bumptech.glide.Glide;
 import com.example.myviewmodel.R;
-import com.example.myviewmodel.api.ApiConfig;
 import com.example.myviewmodel.data.source.local.entity.MovieEntity;
-import com.example.myviewmodel.data.source.remote.response.movie.MovieResult;
 import com.example.myviewmodel.utils.Constant;
 import com.example.myviewmodel.viewModel.DetailViewModel;
 import com.example.myviewmodel.viewModel.ViewModelFactory;
@@ -31,7 +29,7 @@ public class DetailMovieActivity extends AppCompatActivity {
     TextView tvTitle;
     TextView tvDesc;
     MovieEntity selectedMovie;
-    CircleImageView circleImageView;
+    ImageView circleImageView;
     TextView tvReleaseDate;
     RatingBar ratingBar;
     FloatingActionButton fabFav;
@@ -42,7 +40,7 @@ public class DetailMovieActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.tes_detail);
+        setContentView(R.layout.tes_detail_bre);
         imgBackdrop = findViewById(R.id.detailPoster);
         circleImageView = findViewById(R.id.detailCircleImage);
         tvReleaseDate = findViewById(R.id.dateRelease);
@@ -52,9 +50,7 @@ public class DetailMovieActivity extends AppCompatActivity {
         fabFav = findViewById(R.id.fabFav);
         detailViewModel = obtainViewModel();
         selectedMovie = getIntent().getParcelableExtra(Constant.EXTRA_MOVIE);
-
         detailViewModel.setIdMovie(selectedMovie.getId());
-
         if (selectedMovie.getId() > 0){
             detailViewModel.getSelectedMovie().observe(this,movieEntityResource -> {
                 if(movieEntityResource != null) {
@@ -130,7 +126,7 @@ public class DetailMovieActivity extends AppCompatActivity {
                 .placeholder(circularProgressDrawable)
                 .into(imgBackdrop);
         tvTitle.setText(data.getTitle());
-        ratingBar.setRating(data.getVoteAverage());
+        ratingBar.setRating(data.getVoteAverage()/2);
         tvReleaseDate.setText(data.getReleaseDate());
         Glide.with(this)
                 .load(Constant.TMDB_POSTER + data.getPosterPath())

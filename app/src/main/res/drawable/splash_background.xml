@@ -6,8 +6,8 @@
         <bitmap android:gravity="center"
             android:src="@drawable/movie_icon2" />
     </item>
-    <item android:bottom="50dp">
+    <item >
         <bitmap android:gravity="bottom"
-            android:src="@drawable/dicoding_logo"/>
+            android:src="@drawable/tmdb_attribution"/>
     </item>
 </layer-list>

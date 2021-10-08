@@ -14,14 +14,10 @@ import androidx.swiperefreshlayout.widget.CircularProgressDrawable;
 
 import com.bumptech.glide.Glide;
 import com.example.myviewmodel.R;
-import com.example.myviewmodel.api.ApiConfig;
 import com.example.myviewmodel.data.source.local.entity.TvEntity;
-import com.example.myviewmodel.data.source.remote.response.tv.TvResult;
 import com.example.myviewmodel.utils.Constant;
 import com.example.myviewmodel.viewModel.DetailViewModel;
 import com.example.myviewmodel.viewModel.ViewModelFactory;
-
-import java.util.Objects;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -37,7 +33,7 @@ public class DetailTvActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.tes_detail);
+        setContentView(R.layout.activity_detail);
         CircularProgressDrawable circularProgressDrawable = new CircularProgressDrawable(this);
         circularProgressDrawable.setStyle(LARGE);
         circularProgressDrawable.setColorSchemeColors(ContextCompat.getColor(this,R.color.red_400));
@@ -62,7 +58,7 @@ public class DetailTvActivity extends AppCompatActivity {
                         .into(imgBackdrop);
                 tvTitle.setText(selectedTv.getName());
                 tvDesc.setText(selectedTv.getOverview());
-                ratingBar.setRating(selectedTv.getVoteAverage());
+                ratingBar.setRating(selectedTv.getVoteAverage()/2);
                 tvAiringDate.setText(selectedTv.getFirstAirDate());
                 date.setText(R.string.airing_date);
                 Glide.with(this)

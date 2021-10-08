@@ -5,11 +5,12 @@
     <string name="title">Title</string>
     <string name="desc">Overview</string>
     <string name="poster_image">Poster Image</string>
-    <string name="popular_tv">Popular Tv</string>
+    <string name="popular_tv">Popular Tv Show</string>
     <string name="popular_movie">Popular Movie</string>
     <string name="no_desc">No English Description</string>
     <string name="release_date">Release Date</string>
     <string name="airing_date">First Air Date</string>
     <string name="dummy_text">Lorem Ipsum</string>
+    <string name="title_fav">Favourite</string>
 
 </resources>

@@ -16,7 +16,7 @@ public class SplashScreen extends AppCompatActivity {
 
         new Handler(Looper.myLooper()).postDelayed(() -> {
             Intent i = new Intent(SplashScreen.this,
-                    MainActivity.class);
+                    BottomNavActivity.class);
             startActivity(i);
             finish();
         }, SPLASH_SCREEN_TIME_OUT);

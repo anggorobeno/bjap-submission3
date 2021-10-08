@@ -18,6 +18,7 @@ import com.example.myviewmodel.adapter.TvFragmentAdapter;
 import com.example.myviewmodel.api.ApiConfig;
 import com.example.myviewmodel.viewModel.TvViewModel;
 import com.example.myviewmodel.viewModel.ViewModelFactory;
+import com.example.myviewmodel.vo.Status;
 import com.facebook.shimmer.ShimmerFrameLayout;
 
 
@@ -46,13 +47,17 @@ public class TvFragment extends Fragment {
             TvViewModel tvViewModel = new ViewModelProvider(this,factory).get(TvViewModel.class);
             TvFragmentAdapter tvFragmentAdapter = new TvFragmentAdapter(getActivity());
             tvViewModel.tvLiveData().observe(getViewLifecycleOwner(),tvResults -> {
-                tvFragmentAdapter.setListTv(tvResults.data);
+                if (tvResults != null){
+                    if (tvResults.status == Status.SUCCESS){
+                        tvFragmentAdapter.setListTv(tvResults.data);
+                        shimmerFrameLayout.setVisibility(View.INVISIBLE);
+
+                    }
+                }
                 recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 2, GridLayoutManager.VERTICAL, false));
                 recyclerView.setHasFixedSize(true);
                 recyclerView.smoothScrollToPosition(0);
                 recyclerView.setAdapter(tvFragmentAdapter);
-                shimmerFrameLayout.stopShimmer();
-                shimmerFrameLayout.setVisibility(View.GONE);
                 recyclerView.setVisibility(View.VISIBLE);
                 tvFragmentAdapter.notifyDataSetChanged();
             });
